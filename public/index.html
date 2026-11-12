@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 3 9 5-9 5-9-5z'/%3E%3Cpath d='m3 13 9 5 9-5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap" rel="stylesheet">
+  <script>
+    try {
+      var u = JSON.parse(localStorage.getItem('tracker-ui')) || {};
+      var t = u.theme || 'system';
+      var d = t === 'dark' || (t === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.dataset.theme = d ? 'dark' : 'light';
+      document.documentElement.dataset.accent = u.accent || 'indigo';
+    } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="app.css?v=202611121923">
+</head>
+<body>
+  <div class="app">
+    <aside id="side"></aside>
+    <div id="side-scrim" data-act="toggle-side"></div>
+    <main id="main"><div class="boot">Loading…</div></main>
+  </div>
+  <div id="scrim" data-act="drawer-close"></div>
+  <aside id="drawer" aria-label="Row details"></aside>
+  <div id="toasts"></div>
+  <script src="app.js?v=202611121923"></script>
+</body>
+</html>
